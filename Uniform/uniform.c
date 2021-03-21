@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-
+#include <limits.h>
 int uniformGenerator(int hi, int lo)
 {
     int range = hi - lo + 1;
@@ -21,6 +21,7 @@ void printHistogram(FILE *fp, int n, int low, int high, int *arr, int scale)
         new[(arr[i] - low) / scale]++;
     }
     int mx = 0, pos = -1;
+    int mi = INT_MAX;
     for (i = 0; i < range / scale; i++)
     {
         if (new[i] > mx)
@@ -28,8 +29,12 @@ void printHistogram(FILE *fp, int n, int low, int high, int *arr, int scale)
             mx = new[i];
             pos = i;
         }
+        if (new[i] < mi)
+        {
+            mi = new[i];
+        }
     }
-    while (new[pos] != 0)
+    while (new[pos] != mi)
     {
         for (i = 0; i < range / scale; i++)
         {
