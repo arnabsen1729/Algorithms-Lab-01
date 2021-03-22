@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int mySwap(int* a, int* b) {
+void mySwap(int* a, int* b) {
     int t = *a;
     *a = *b;
     *b = t;
