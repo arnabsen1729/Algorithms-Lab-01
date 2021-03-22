@@ -83,11 +83,11 @@ int main() {
     int *arr = (int *)malloc(n * sizeof(int));
     FILE *fp;
     fp = fopen(filename, "w");
-
+    fprintf(fp, "%d\n", n);
     for (int i = 0; i < n; i++) {
         arr[i] = uniformGenerator(high, low);
         sum += arr[i];
-        fprintf(fp, "%d, ", arr[i]);
+        fprintf(fp, "%d ", arr[i]);
         // printf("%d\n", arr[i]);
     }
 
