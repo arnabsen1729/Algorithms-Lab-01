@@ -29,6 +29,16 @@ void quickSort(int arr[], int low, int high) {
     quickSort(arr, pi + 1, high);
 }
 
+void checkSortCorrectness(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < arr[i - 1]) {
+            printf("\nSorting algo failed at index %d !!\n\n", i);
+            return;
+        }
+    }
+    printf("\nSorting algo correctness passed!!\n\n");
+}
+
 int main() {
     int arr[100];
     int n;
@@ -43,5 +53,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
+    checkSortCorrectness(arr, n);
     return 0;
 }
