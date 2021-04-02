@@ -3,16 +3,16 @@
 #include <time.h>
 #include <math.h>
 
-void mySwap(double *a, double *b)
+void mySwap(int *a, int *b)
 {
-    double t = *a;
+    int t = *a;
     *a = *b;
     *b = t;
 }
 
-int partition(double arr[], int low, int high, int *cnt)
+int partition(int arr[], int low, int high, int *cnt)
 {
-    double pivot = arr[high];
+    int pivot = arr[high];
     int i = low - 1;
 
     for (int curr = low; curr <= high; curr++)
@@ -29,18 +29,24 @@ int partition(double arr[], int low, int high, int *cnt)
     return (i + 1);
 }
 
-void quickSort(double arr[], int low, int high, int *cnt)
+int randomized_partition(int *arr, int initial, int final, int *count)
 {
-    if (low >= high)
-    {
-        return;
-    }
-    int pi = partition(arr, low, high, cnt);
-    quickSort(arr, low, pi - 1, cnt);
-    quickSort(arr, pi + 1, high, cnt);
+    int i = rand() % (final - initial) + initial;
+    mySwap(&arr[final], &arr[i]);
+    return partition(arr, initial, final, count);
 }
 
-int checkForCorrectness(double *arr, int n)
+void quickSort(int *arr, int initial, int final, int *count)
+{
+    if (initial < final)
+    {
+        int pos_of_pivot = randomized_partition(arr, initial, final, count);
+        quickSort(arr, initial, pos_of_pivot, count);
+        quickSort(arr, pos_of_pivot + 1, final, count);
+    }
+}
+
+int checkForCorrectness(int *arr, int n)
 {
     int correct = 1;
     for (int i = 1; i < n; i++)
@@ -54,21 +60,21 @@ int checkForCorrectness(double *arr, int n)
     return correct;
 }
 
-void getArray(double *arr, int n)
+void getArray(int *arr, int n)
 {
 
-    FILE *fin = fopen("./NormalDst.txt", "r");
+    FILE *fin = fopen("./UniformDst.txt", "r");
 
-    double temp = 0.0;
-    fscanf(fin, "%lf\n", &temp);
+    int temp = 0;
+    fscanf(fin, "%d\n", &temp);
     for (int i = 0; i < n; i++)
     {
         int skip = rand() % 5;
 
         for (int j = 0; j < skip; j++)
-            fscanf(fin, "%lf\n", &temp);
+            fscanf(fin, "%d\n", &temp);
 
-        fscanf(fin, "%lf\n", &temp);
+        fscanf(fin, "%d\n", &temp);
 
         arr[i] = temp;
     }
@@ -80,10 +86,10 @@ void getArray(double *arr, int n)
 int main()
 {
     int n = 2;
-    int power = 9;
+    int power = 11;
     int iterations = 20;
 
-    FILE *fout = fopen("Normal_comparisons.txt", "w");
+    FILE *fout = fopen("RQS_uniform_comparisons.txt", "w");
 
     for (int i = 0; i < power; i++)
     {
@@ -93,7 +99,7 @@ int main()
 
         for (int j = 0; j < iterations; j++)
         {
-            double *arr = (double *)malloc(n * sizeof(double));
+            int *arr = (int *)malloc(n * sizeof(int));
             int cnt = 0;
             getArray(arr, n);
 

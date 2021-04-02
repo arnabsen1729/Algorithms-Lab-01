@@ -1,0 +1,9 @@
+Size: 2, Avg. time: 0.0007, Avg. comparisons: 2
+Size: 4, Avg. time: 0.0007, Avg. comparisons: 6
+Size: 8, Avg. time: 0.0011, Avg. comparisons: 17
+Size: 16, Avg. time: 0.0021, Avg. comparisons: 47
+Size: 32, Avg. time: 0.0034, Avg. comparisons: 112
+Size: 64, Avg. time: 0.0075, Avg. comparisons: 275
+Size: 128, Avg. time: 0.0144, Avg. comparisons: 582
+Size: 256, Avg. time: 0.0315, Avg. comparisons: 1394
+Size: 512, Avg. time: 0.0817, Avg. comparisons: 3081

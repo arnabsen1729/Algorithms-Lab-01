@@ -29,15 +29,21 @@ int partition(double arr[], int low, int high, int *cnt)
     return (i + 1);
 }
 
-void quickSort(double arr[], int low, int high, int *cnt)
+int randomized_partition(double *arr, int initial, int final, int *count)
 {
-    if (low >= high)
+    int i = rand() % (final - initial) + initial;
+    mySwap(&arr[final], &arr[i]);
+    return partition(arr, initial, final, count);
+}
+
+void quickSort(double *arr, int initial, int final, int *count)
+{
+    if (initial < final)
     {
-        return;
+        int pos_of_pivot = randomized_partition(arr, initial, final, count);
+        quickSort(arr, initial, pos_of_pivot, count);
+        quickSort(arr, pos_of_pivot + 1, final, count);
     }
-    int pi = partition(arr, low, high, cnt);
-    quickSort(arr, low, pi - 1, cnt);
-    quickSort(arr, pi + 1, high, cnt);
 }
 
 int checkForCorrectness(double *arr, int n)
@@ -83,7 +89,7 @@ int main()
     int power = 9;
     int iterations = 20;
 
-    FILE *fout = fopen("Normal_comparisons.txt", "w");
+    FILE *fout = fopen("RQS_normal_comparisons.txt", "w");
 
     for (int i = 0; i < power; i++)
     {
