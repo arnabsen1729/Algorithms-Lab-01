@@ -78,25 +78,37 @@ void printArray(int A[], int size)
         printf("%d ,", A[i]);
     printf("\n");
 }
+int checkForCorrectness(int *arr, int n)
+{
+    int correct = 1;
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] < arr[i - 1])
+        {
+            correct = 0;
+            break;
+        }
+    }
+    return correct;
+}
 
 /* Driver code */
 int main()
 {
-    int n;
-    printf("\nEnter the size of array: ");
-    scanf("%d", &n);
+    int n = 2;
+    int power = 20;
 
     int *arr = (int *)malloc(n * sizeof(int));
 
-    printf("Enter the array elements: \n");
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-
     mergeSort(arr, 0, n - 1);
-
-    printf("\nSorted array is:- \n");
-    printArray(arr, n);
+    int correct = checkForCorrectness(arr, n);
+    if (correct == 1)
+    {
+        printf("\nThe array has been correctly sorted!\n");
+    }
+    else
+    {
+        printf("\nThere has been some error in sorting!!\n");
+    }
     return 0;
 }

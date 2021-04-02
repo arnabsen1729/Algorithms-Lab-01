@@ -3,40 +3,52 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int uniformGenerator(int hi, int lo) {
+int uniformGenerator(int hi, int lo)
+{
     int range = hi - lo + 1;
     double frac = rand() / (1.0 + RAND_MAX);
     return (int)(frac * range + lo);
 }
 
 void printHistogram(FILE *fp, int n, int low, int high, int *arr, int scale,
-                    int vscale) {
+                    int vscale)
+{
     int *new, range, i, j;
     range = high - low + 1;
     new = (int *)calloc((range / scale), sizeof(int));
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         // printf("Number: %d, POsition: %d\n", arr[i], (arr[i] - low) / scale);
         new[(arr[i] - low) / scale]++;
     }
     int mx = 0, pos = -1;
     int mi = INT_MAX;
-    for (int i = 0; i < range / scale; i++) {
+    for (int i = 0; i < range / scale; i++)
+    {
         new[i] /= vscale;
     }
-    for (i = 0; i < range / scale; i++) {
-        if (new[i] > mx) {
+    for (i = 0; i < range / scale; i++)
+    {
+        if (new[i] > mx)
+        {
             mx = new[i];
             pos = i;
         }
-        if (new[i] < mi) {
+        if (new[i] < mi)
+        {
             mi = new[i];
         }
     }
-    while (new[pos] != 0) {
-        for (i = 0; i < range / scale; i++) {
-            if (new[i] >= new[pos]) {
+    while (new[pos] != 0)
+    {
+        for (i = 0; i < range / scale; i++)
+        {
+            if (new[i] >= new[pos])
+            {
                 printf("* ");
-            } else {
+            }
+            else
+            {
                 printf("  ");
             }
             printf("  ");
@@ -44,10 +56,12 @@ void printHistogram(FILE *fp, int n, int low, int high, int *arr, int scale,
         new[pos] -= 1;
         printf("\n");
     }
-    for (i = 0; i < range / scale; i++) {
+    for (i = 0; i < range / scale; i++)
+    {
         printf("%d  ", (i + 1));
         fprintf(fp, "%d  ", (i + 1));
-        if (i <= 8) {
+        if (i <= 8)
+        {
             printf(" ");
             // fprintf(fp, " ");
         }
@@ -56,10 +70,11 @@ void printHistogram(FILE *fp, int n, int low, int high, int *arr, int scale,
     fprintf(fp, "\n");
 }
 
-int main() {
+int main()
+{
     int n, low, high, scale, vscale;
     double sum, avg;
-    char filename[40] = "dataset.txt";
+    char filename[40] = "UniformDst.txt";
 
     srand(time(0));
 
@@ -84,10 +99,11 @@ int main() {
     FILE *fp;
     fp = fopen(filename, "w");
     fprintf(fp, "%d\n", n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         arr[i] = uniformGenerator(high, low);
         sum += arr[i];
-        fprintf(fp, "%d ", arr[i]);
+        fprintf(fp, "%d\n", arr[i]);
         // printf("%d\n", arr[i]);
     }
 

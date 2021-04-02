@@ -61,27 +61,24 @@ int main(void)
 {
     double *seq, miu, sigma;
     long int n = 1000, file_num = 10;
-    char filename[30] = "NormalDst0.txt";
-    printf("Mean:");
-    scanf("%lf", &miu);
-    printf("Std. Dev. :");
-    scanf("%lf", &sigma);
+    char filename[30] = "NormalDst.txt";
+    miu = 100.0;
+    sigma = 10.0;
+    // printf("Mean:");
+    // scanf("%lf", &miu);
+    // printf("Std. Dev. :");
+    // scanf("%lf", &sigma);
     //printf("Number of files you want to generate(<9):");scanf("%ld",&file_num);
     //printf("Standardised Practical Mean = %lf || Standardised Theoretical Mean = %lf\n",mean(seq,n),miu);
     //printf("Standardised Practical SD = %lf || Standardised Theoretical SD = %lf\n",stddev(seq,n),sigma);
     //printf("Time Taken to Generate %ld numbers : %lf.\n",n,time);
-    for (int i = 0; i < file_num; i++)
+    seq = generate(n, miu, sigma);
+    FILE *fp;
+    fp = fopen(filename, "w");
+    fprintf(fp, "%ld\n", n);
+    for (int i = 0; i < n; i++)
     {
-        seq = generate(n, miu, sigma);
-        FILE *fp;
-        fp = fopen(filename, "w");
-        fprintf(fp, "%ld\n", n);
-        for (int i = 0; i < n; i++)
-        {
-            fprintf(fp, "%lf\n", seq[i]);
-        }
-        fclose(fp);
-        filename[9]++;
-        free(seq);
+        fprintf(fp, "%lf\n", seq[i]);
     }
+    fclose(fp);
 }
