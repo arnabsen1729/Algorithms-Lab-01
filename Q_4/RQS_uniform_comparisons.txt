@@ -1,11 +1,15 @@
-Size: 2, Avg. time: 0.0008, Avg. comparisons: 1
-Size: 4, Avg. time: 0.0014, Avg. comparisons: 6
-Size: 8, Avg. time: 0.0020, Avg. comparisons: 15
-Size: 16, Avg. time: 0.0030, Avg. comparisons: 46
-Size: 32, Avg. time: 0.0060, Avg. comparisons: 112
-Size: 64, Avg. time: 0.0118, Avg. comparisons: 274
-Size: 128, Avg. time: 0.0252, Avg. comparisons: 581
-Size: 256, Avg. time: 0.0385, Avg. comparisons: 1351
-Size: 512, Avg. time: 0.0797, Avg. comparisons: 2837
-Size: 1024, Avg. time: 0.1327, Avg. comparisons: 6154
-Size: 2048, Avg. time: 0.3676, Avg. comparisons: 12498
+2, 0.0011, 1
+4, 0.0014, 6
+8, 0.0021, 15
+16, 0.0036, 46
+32, 0.0083, 112
+64, 0.0121, 274
+128, 0.0189, 581
+256, 0.0477, 1351
+512, 0.0800, 2837
+1024, 0.1522, 6154
+2048, 0.4752, 12498
+4096, 5.9182, 26839
+8192, 37.9314, 54120
+16384, 193.0478, 117664
+32768, 934.1427, 212170

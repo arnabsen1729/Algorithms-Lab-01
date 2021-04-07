@@ -86,7 +86,7 @@ void getArray(double *arr, int n)
 int main()
 {
     int n = 2;
-    int power = 9;
+    int power = 15;
     int iterations = 20;
 
     FILE *fout = fopen("RQS_normal_comparisons.txt", "w");
@@ -125,7 +125,7 @@ int main()
         float avg_time = total_time / iterations;
         long avg_count = total_cnt / iterations;
         //printf("\nN: %d, Avg time: %0.4f, Avg count: %ld\n", n, avg_time, avg_count);
-        fprintf(fout, "Size: %d, Avg. time: %0.4f, Avg. comparisons: %ld\n", n, avg_time, avg_count);
+        fprintf(fout, "%d, %0.4f, %ld\n", n, avg_time, avg_count);
         n *= 2;
     }
     return 0;
