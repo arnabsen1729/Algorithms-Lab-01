@@ -1,0 +1,10 @@
+Avg. size: 100, Avg. part size: 44.299999
+Avg. size: 200, Avg. part size: 93.699997
+Avg. size: 300, Avg. part size: 146.500000
+Avg. size: 400, Avg. part size: 167.800003
+Avg. size: 500, Avg. part size: 173.199997
+Avg. size: 600, Avg. part size: 203.699997
+Avg. size: 700, Avg. part size: 203.800003
+Avg. size: 800, Avg. part size: 194.399994
+Avg. size: 900, Avg. part size: 201.600006
+Avg. size: 1000, Avg. part size: 208.000000
