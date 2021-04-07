@@ -121,7 +121,7 @@ int main()
 {
     srand(time(0));
 
-    const int max_arr_size = 5000;
+    const int max_arr_size = 50000;
 
     int divide_size = 5;
     int num_iter = 10;
@@ -148,7 +148,7 @@ int main()
         avg_part_size = avg_part_size / num_iter;
 
         printf("array_size: %d avg_part_size: %f \n", arr_size, avg_part_size);
-        fprintf(fout, "Avg. size: %d, Avg. part size: %f\n", arr_size, avg_part_size);
+        fprintf(fout, "%d, %f\n", arr_size, avg_part_size);
     }
 
     fclose(fout);
