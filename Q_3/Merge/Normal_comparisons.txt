@@ -1,9 +1,16 @@
-Size: 2, Avg. time: 0.0016, Avg. comparisons: 2
-Size: 4, Avg. time: 0.0009, Avg. comparisons: 8
-Size: 8, Avg. time: 0.0013, Avg. comparisons: 24
-Size: 16, Avg. time: 0.0022, Avg. comparisons: 64
-Size: 32, Avg. time: 0.0043, Avg. comparisons: 160
-Size: 64, Avg. time: 0.0083, Avg. comparisons: 384
-Size: 128, Avg. time: 0.0180, Avg. comparisons: 896
-Size: 256, Avg. time: 0.0311, Avg. comparisons: 2048
-Size: 512, Avg. time: 0.0681, Avg. comparisons: 4608
+2, 0.0006, 2
+4, 0.0009, 8
+8, 0.0014, 24
+16, 0.0021, 64
+32, 0.0031, 160
+64, 0.0062, 384
+128, 0.0133, 896
+256, 0.0347, 2048
+512, 0.0720, 4608
+1024, 0.1823, 10240
+2048, 0.4191, 22528
+4096, 0.8850, 49152
+8192, 1.9506, 106496
+16384, 3.9561, 229376
+32768, 7.9988, 491520
+65536, 13.5150, 1048576
