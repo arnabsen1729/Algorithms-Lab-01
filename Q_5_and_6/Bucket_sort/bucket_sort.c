@@ -140,7 +140,7 @@ int main()
 {
     srand(time(0));
 
-    int max_p = 9;
+    int max_p = 16;
     int num_iter_power = 10;
 
     FILE *fout = fopen("bucket_normal_obs.txt", "w");
@@ -187,7 +187,7 @@ int main()
 
         float avg_time = sum_time / num_iter_power;
         long avg_count = sum_count / num_iter_power;
-        fprintf(fout, "Size: %d, Avg. comparisons: %ld, Avg. time: %0.4f\n", n, avg_count, avg_time);
+        fprintf(fout, "%d, %ld, %0.4f\n", n, avg_count, avg_time);
         n *= 2;
     }
 

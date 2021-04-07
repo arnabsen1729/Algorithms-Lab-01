@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int NO_OF_LINES = 10e6;
-const int MAX_VALUE = 100;
+const int MAX_VALUE = 200;
 
 int main()
 {
