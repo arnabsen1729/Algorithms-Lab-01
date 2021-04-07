@@ -73,7 +73,7 @@ int main()
 
     short arr[arr_size];
 
-    for (int obs_counter = 0; obs_counter <= 200; obs_counter++)
+    for (int obs_counter = 0; obs_counter <= 1000; obs_counter++)
     {
         divide_size = 2 * obs_counter + 3;
         avg_time = 0;
@@ -94,7 +94,7 @@ int main()
         avg_time = avg_time / num_iter;
 
         printf("divide_size: %4d avg_time: %3.4f ms\n", divide_size, avg_time);
-        fprintf(fout, "Div. size: %d, Avg. time: %f\n", divide_size, avg_time);
+        fprintf(fout, "%d, %f\n", divide_size, avg_time);
     }
 
     fclose(fout);
